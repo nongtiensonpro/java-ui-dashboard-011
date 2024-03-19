@@ -1,10 +1,14 @@
 package javaswingdev.form;
 
+
+
 public class Form_Empty extends javax.swing.JPanel {
 
     public Form_Empty(String name) {
         initComponents();
         lb.setText("Form " + name);
+//        DangNhap dangNhap = new DangNhap();
+//        dangNhap.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -26,8 +30,8 @@ public class Form_Empty extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(495, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

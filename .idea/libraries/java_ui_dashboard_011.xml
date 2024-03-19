@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="java-ui-dashboard-011">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/gradient-icon-font.jar!/" />
+      <root url="jar://$PROJECT_DIR$/miglayout-4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jgoodies-common-1.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jgoodies-looks-2.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TimingFramework-0.55.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jcalendar-1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/junit-4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mssql-jdbc-12.6.1.jre11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
