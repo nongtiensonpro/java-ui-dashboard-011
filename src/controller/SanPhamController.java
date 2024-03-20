@@ -238,9 +238,10 @@ public class SanPhamController {
 
         try {
             connection = DatabaseConnection.getConnection();
-            String cauLenhTimKiemSQL = "SELECT * FROM [dbo].[ChiTietSanPham] WHERE [Ma_SanPhamChiTiet] LIKE ?";
+            String cauLenhTimKiemSQL = "SELECT * FROM [dbo].[ChiTietSanPham] WHERE [Ma_SanPhamChiTiet] LIKE ? OR Ten Like ?";
             statement = connection.prepareStatement(cauLenhTimKiemSQL);
             statement.setString(1, "%" + maSanPhamChiTiet + "%");
+            statement.setString(2,"%"+ maSanPhamChiTiet + "%");
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {

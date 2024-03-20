@@ -18,12 +18,16 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
+import javaswingdev.GoogleMaterialDesignIcon;
 import static javaswingdev.form.DangNhap.Ma_NhanVienstatic;
 import static javaswingdev.main.MainTaoFrom.taiKhoanNhanVienControllerStatic;
+import javaswingdev.menu.ModelMenuItem;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -213,6 +217,11 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
         }
         if (txtMoTa.getText().trim().equals("")) {
             MsgBox.alert(this, "Bạn cần nhập mô tả !");
+            return false;
+        }
+        
+        if(txtAnh.getIcon()==null){
+            MsgBox.alert(this, "Bạn cần chọn ảnh !");
             return false;
         }
 
@@ -822,6 +831,7 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
             boolean ketQua = sanPhamController.themSanPhamChiTietNew(sanPhamMoiTuText());
             if (ketQua) {
                 MsgBox.alert(this, "Bạn đã thêm sản phẩm thành công !");
+                listSanPhamNew = sanPhamController.getAllSanPhamChiTiet();
                 hienThiLenTable();
 
             } else {
@@ -853,6 +863,7 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
         java.time.LocalDate ngaySuaLocalDate = java.time.LocalDate.now();
         txtNgayTao.setDate(java.sql.Date.valueOf(ngaySuaLocalDate));
         listSanPhamNew = sanPhamController.getAllSanPhamChiTiet();
+        txtAnh.setIcon(null);
         hienThiLenTable();
         loadComboBoxNew();
     }
@@ -930,6 +941,7 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
                     boolean ketQua = sanPhamController.updateSanPhamChiTiet(sanPhamMoiTuText());
                     if (ketQua) {
                         MsgBox.alert(this, "Bạn đã cập nhật thành công");
+                        listSanPhamNew = sanPhamController.getAllSanPhamChiTiet();
                         hienThiLenTable();
                     } else {
                         MsgBox.alert(this, "Bạn đã cập nhật thất bại");
@@ -1000,15 +1012,12 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
                 rdoKhongHoatDong.setSelected(true);
             }
 
-            byte[] imageBytes = sanPhamModel.getAnhSanPham();
-            if (imageBytes.length == 0) {
-                txtAnh.setText("Chưa có ảnh");
-            } else {
-                ImageIcon icon = new ImageIcon(imageBytes);
-                Image scaledImage = icon.getImage().getScaledInstance(345, 216, Image.SCALE_SMOOTH);
-                icon = new ImageIcon(scaledImage);
-                txtAnh.setIcon(icon);
-            }
+            imageBytes = sanPhamModel.getAnhSanPham();
+
+            ImageIcon icon = new ImageIcon(imageBytes);
+            Image scaledImage = icon.getImage().getScaledInstance(345, 216, Image.SCALE_SMOOTH);
+            icon = new ImageIcon(scaledImage);
+            txtAnh.setIcon(icon);
 
         }
     }//GEN-LAST:event_tblBangSanPhamMouseClicked
@@ -1054,9 +1063,6 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
         spm.setMaSize(sizeController.timkiemSize().get(cboMaSize.getSelectedIndex()).getMaSize());
         spm.setTrangThai(rdoHoatDong.isSelected());
         spm.setMoTa(txtMoTa.getText());
-//        java.util.Date utilDate = txtNgayTao.getCalendar().getTime(); // Lấy đối tượng java.util.Date
-//        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime()); // Chuyển đổi sang java.sql.Date
-//        spm.setNgayTao(sqlDate);
         java.util.Date ngaySuaDate = txtNgayTao.getCalendar().getTime();
         java.sql.Date ngaySuaSQL = new java.sql.Date(ngaySuaDate.getTime());
         spm.setNgayTao(ngaySuaSQL);

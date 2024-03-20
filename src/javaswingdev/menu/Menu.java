@@ -22,11 +22,12 @@ public class Menu extends JPanel {
 
     private int index = -1;
     private final List<EventMenuSelected> events = new ArrayList<>();
+    private TaiKhoanNhanVIenFull tknvif = taiKhoanNhanVienControllerStatic.selectNhanVienFull(Ma_NhanVienstatic).get(0);
 
     public Menu() {
         init();
     }
-    TaiKhoanNhanVIenFull tknvif = taiKhoanNhanVienControllerStatic.selectNhanVienFull(Ma_NhanVienstatic).get(0);
+    
 
     private void init() {
         setBackground(Color.WHITE);
@@ -37,7 +38,6 @@ public class Menu extends JPanel {
         scroll.getViewport().setOpaque(false);
         scroll.setViewportBorder(null);
         add(scroll);
-
         addTitle("Số điện thoại : "+tknvif.getSoDienThoai());
         addTitle("Họ và tên : "+tknvif.getHoTen());
         String chucVu = tknvif.isVaiTro()?"Quản lý":"Nhân viên";

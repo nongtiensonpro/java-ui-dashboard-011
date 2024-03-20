@@ -27,6 +27,7 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
      */
     public QuanLyNhanVien() {
         initComponents();
+        luaChonBanDau();
         lamMoiTextField();
         hienThiLenTable();
         TaiKhoanNhanVIenFull tknvif = taiKhoanNhanVienControllerStatic.selectNhanVienFull(Ma_NhanVienstatic).get(0);
@@ -37,6 +38,11 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
 
     }
 
+    private void luaChonBanDau(){
+        rdoNhanVien.setSelected(true);
+        rdoKhongHoatDong.setSelected(true);
+        rdoNu.setSelected(true);
+    }
     private void hienThiLenTable() {
 
         DefaultTableModel dtm = (DefaultTableModel) tblNhanVien.getModel();
@@ -143,7 +149,6 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtTimKiem = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
         roundPanel4 = new javaswingdev.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -343,8 +348,6 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Xóa");
-
         btnLamMoi.setText("Làm mới");
         btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,16 +362,17 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jButton3)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLamMoi)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLamMoi)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -382,7 +386,6 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton4)
                     .addComponent(btnLamMoi))
                 .addContainerGap(227, Short.MAX_VALUE))
         );
@@ -526,6 +529,8 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
+        listTaiKhoanNhanVien = taiKhoanNhanVienController.selectNhanVienFull("KhongCoGiCa");
+        hienThiLenTable();
         lamMoiTextField();
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
@@ -601,7 +606,6 @@ public class QuanLyNhanVien extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
