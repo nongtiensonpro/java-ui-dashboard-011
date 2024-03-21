@@ -50,6 +50,8 @@ public class Menu extends JPanel {
             addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PHONE_IPHONE, "Quản Lý Nhân Viên"));
             addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_INPUT_COMPOSITE, "Quản Lý Mã Xác Thực"));
         }
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ARROW_DROP_UP,"Khách hàng"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_A_PHOTO,"Khuyến mãi"));
 
     }
 

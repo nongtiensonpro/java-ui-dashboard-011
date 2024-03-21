@@ -3,6 +3,8 @@ package javaswingdev.main;
 import controller.TaiKhoanNhanVienController;
 import java.awt.Component;
 import static javaswingdev.form.DangNhap.Ma_NhanVienstatic;
+import javaswingdev.form.FormKhachHang;
+import javaswingdev.form.FormKhuyenMai;
 import javaswingdev.form.Form_Dashboard;
 import javaswingdev.form.QuanLyMaXacThuc;
 import javaswingdev.form.QuanLyNhanVien;
@@ -46,7 +48,12 @@ public class MainTaoFrom extends javax.swing.JFrame {
                     if(index == 3 && indexSubMenu == 0){
                         showForm(new QuanLyMaXacThuc());
                     }
-
+                    if(index == 4 && indexSubMenu == 0){
+                        showForm(new FormKhachHang());
+                    }
+                    if(index == 5 && indexSubMenu == 0){
+                        showForm(new FormKhuyenMai());
+                    }
                 }
             }
         });
@@ -86,20 +93,16 @@ public class MainTaoFrom extends javax.swing.JFrame {
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         body.setOpaque(false);
