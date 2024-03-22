@@ -130,8 +130,8 @@ public class SanPhamController {
                 sanPhamNew.setMaHang(resultSet.getString("MaHang"));
                 sanPhamNew.setAnhSanPham(resultSet.getBytes("AnhSanPham"));
                 sanPhamNew.setMaChatLieu(resultSet.getString("MaChatLieu"));
-                sanPhamNew.setGiaNhap(resultSet.getDouble("GiaNhap"));
-                sanPhamNew.setGiaBan(resultSet.getDouble("GiaBan"));
+                sanPhamNew.setGiaNhap(resultSet.getInt("GiaNhap"));
+                sanPhamNew.setGiaBan(resultSet.getInt("GiaBan"));
                 sanPhamNew.setSoLuong(resultSet.getInt("SoLuong"));
                 sanPhamNew.setTrangThai(resultSet.getBoolean("TrangThai"));
                 sanPhamNew.setNgayTao(resultSet.getDate("NgayTao"));
@@ -254,8 +254,8 @@ public class SanPhamController {
                 sanPhamNew.setMaHang(resultSet.getString("MaHang"));
                 sanPhamNew.setAnhSanPham(resultSet.getBytes("AnhSanPham"));
                 sanPhamNew.setMaChatLieu(resultSet.getString("MaChatLieu"));
-                sanPhamNew.setGiaNhap(resultSet.getDouble("GiaNhap"));
-                sanPhamNew.setGiaBan(resultSet.getDouble("GiaBan"));
+                sanPhamNew.setGiaNhap(resultSet.getInt("GiaNhap"));
+                sanPhamNew.setGiaBan(resultSet.getInt("GiaBan"));
                 sanPhamNew.setSoLuong(resultSet.getInt("SoLuong"));
                 sanPhamNew.setTrangThai(resultSet.getBoolean("TrangThai"));
                 sanPhamNew.setNgayTao(resultSet.getDate("NgayTao"));

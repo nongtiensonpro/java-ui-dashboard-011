@@ -1053,8 +1053,8 @@ public class QuanLySanPhamJPanelNew extends javax.swing.JPanel {
         SanPhamModel spm = new SanPhamModel();
         spm.setMa_SanPhamChiTiet(txtMaSanPham.getText());
         spm.setTen(txtTenSanPham.getText());
-        spm.setGiaNhap(Double.valueOf(txtGiaNhap.getText()));
-        spm.setGiaBan(Double.valueOf(txtGiaBan.getText()));
+        spm.setGiaNhap(Integer.parseInt(txtGiaNhap.getText()));
+        spm.setGiaBan(Integer.parseInt(txtGiaBan.getText()));
         spm.setSoLuong(Integer.parseInt(txtSoLuong.getText()));
         spm.setMaHang(hangController.timkiemHang().get(cboLoaiHang.getSelectedIndex()).getMaHang());
         spm.setMaMauSac(mauSacController.timkiemMauSac().get(cboMauSac.getSelectedIndex()).getMaMauSac());

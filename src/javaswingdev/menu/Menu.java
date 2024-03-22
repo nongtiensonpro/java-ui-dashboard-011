@@ -1,6 +1,5 @@
 package javaswingdev.menu;
 
-import controller.TaiKhoanNhanVienController;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -52,6 +51,7 @@ public class Menu extends JPanel {
         }
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ARROW_DROP_UP,"Khách hàng"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_A_PHOTO,"Khuyến mãi"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.FIRST_PAGE,"Bán hàng"));
 
     }
 

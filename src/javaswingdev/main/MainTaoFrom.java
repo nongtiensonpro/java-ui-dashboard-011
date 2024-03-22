@@ -2,6 +2,7 @@ package javaswingdev.main;
 
 import controller.TaiKhoanNhanVienController;
 import java.awt.Component;
+import javaswingdev.form.BanHang;
 import static javaswingdev.form.DangNhap.Ma_NhanVienstatic;
 import javaswingdev.form.FormKhachHang;
 import javaswingdev.form.FormKhuyenMai;
@@ -53,6 +54,9 @@ public class MainTaoFrom extends javax.swing.JFrame {
                     }
                     if(index == 5 && indexSubMenu == 0){
                         showForm(new FormKhuyenMai());
+                    }
+                    if(index == 6 && indexSubMenu == 0){
+                        showForm(new BanHang());
                     }
                 }
             }

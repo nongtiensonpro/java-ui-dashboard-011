@@ -19,8 +19,8 @@ public class SanPhamModel {
     private String maHang;
     private byte[] anhSanPham;
     private String maChatLieu;
-    private Double giaNhap;
-    private Double giaBan;
+    private int giaNhap;
+    private int giaBan;
     private int soLuong;
     private boolean trangThai;
     private Date ngayTao;
@@ -30,7 +30,7 @@ public class SanPhamModel {
     public SanPhamModel() {
     }
 
-    public SanPhamModel(String ma_SanPhamChiTiet, String maSize, String ten, String maSanXuat, String maMauSac, String maHang, byte[] anhSanPham, String maChatLieu, Double giaNhap, Double giaBan, int soLuong, boolean trangThai, Date ngayTao, Date ngaySua, String moTa) {
+    public SanPhamModel(String ma_SanPhamChiTiet, String maSize, String ten, String maSanXuat, String maMauSac, String maHang, byte[] anhSanPham, String maChatLieu, int giaNhap, int giaBan, int soLuong, boolean trangThai, Date ngayTao, Date ngaySua, String moTa) {
         this.ma_SanPhamChiTiet = ma_SanPhamChiTiet;
         this.maSize = maSize;
         this.ten = ten;
@@ -47,7 +47,8 @@ public class SanPhamModel {
         this.ngaySua = ngaySua;
         this.moTa = moTa;
     }
-
+     
+    
     public String getMa_SanPhamChiTiet() {
         return ma_SanPhamChiTiet;
     }
@@ -112,19 +113,19 @@ public class SanPhamModel {
         this.maChatLieu = maChatLieu;
     }
 
-    public Double getGiaNhap() {
+    public int getGiaNhap() {
         return giaNhap;
     }
 
-    public void setGiaNhap(Double giaNhap) {
+    public void setGiaNhap(int giaNhap) {
         this.giaNhap = giaNhap;
     }
 
-    public Double getGiaBan() {
+    public int getGiaBan() {
         return giaBan;
     }
 
-    public void setGiaBan(Double giaBan) {
+    public void setGiaBan(int giaBan) {
         this.giaBan = giaBan;
     }
 
@@ -168,5 +169,6 @@ public class SanPhamModel {
         this.moTa = moTa;
     }
 
+    
     
 }
