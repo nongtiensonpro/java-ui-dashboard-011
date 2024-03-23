@@ -26,7 +26,6 @@ public class Menu extends JPanel {
     public Menu() {
         init();
     }
-    
 
     private void init() {
         setBackground(Color.WHITE);
@@ -42,16 +41,14 @@ public class Menu extends JPanel {
         String chucVu = tknvif.isVaiTro()?"Quản lý":"Nhân viên";
         addTitle("Chức vụ : "+ chucVu );
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DASHBOARD, "Trang Chủ"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MAIL_OUTLINE, "Quản Lý Sản Phẩm"));
-        addTitle("Quản Lý Sản Phẩm");
-        if (true) {
-            addTitle("Quản Lý");
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ARROW_DROP_UP, "Khách hàng"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.FIRST_PAGE, "Bán hàng"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.FIRST_PAGE, "Quản lý sản phẩm"));
+        if (tknvif.isVaiTro()) {
             addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PHONE_IPHONE, "Quản Lý Nhân Viên"));
             addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS_INPUT_COMPOSITE, "Quản Lý Mã Xác Thực"));
+            addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_A_PHOTO,"Khuyến mãi"));
         }
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ARROW_DROP_UP,"Khách hàng"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ADD_A_PHOTO,"Khuyến mãi"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.FIRST_PAGE,"Bán hàng"));
 
     }
 

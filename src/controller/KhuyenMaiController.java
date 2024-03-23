@@ -214,4 +214,60 @@ public class KhuyenMaiController {
 
         return listKhanhHang;
     }
+    public List<KhuyenMai> timKiemKhuyenMaitheoMaTrangThai(String maKhuyenMai) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        KhuyenMai khachHangModel = null;
+        List<KhuyenMai> listKhanhHang = new ArrayList<>();
+
+        try {
+            connection = DatabaseConnection.getConnection();
+
+            String cauLenhTimKiem = "SELECT * FROM KhuyenMai WHERE MaKhuyenMai = ? AND TrangThai = 1";
+            statement = connection.prepareStatement(cauLenhTimKiem);
+            statement.setString(1, maKhuyenMai);
+
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                khachHangModel = new KhuyenMai();
+                
+                khachHangModel.setTenKhuyenMai(resultSet.getString("TenKhuyenMai"));
+                khachHangModel.setGiaTri(resultSet.getInt("GiaTri"));
+                khachHangModel.setLoaiKhuyenMai(resultSet.getBoolean("LoaiKhuyenMai"));
+                khachHangModel.setNgayBatDau(resultSet.getDate("NgayBatDau"));
+                khachHangModel.setNgayKetThuc(resultSet.getDate("NgayKetThuc"));
+                khachHangModel.setTrangThai(resultSet.getBoolean("TrangThai"));
+                listKhanhHang.add(khachHangModel);
+            }
+            return listKhanhHang;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+
+        return listKhanhHang;
+    }
 }

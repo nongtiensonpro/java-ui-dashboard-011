@@ -166,6 +166,46 @@ public class HoaDonController {
         return result;
     }
     
+    public boolean capNhatHoaDonThanhToanHoaDon(HoaDonModel hoaDonModel) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            String cauLenhCapNhat = "UPDATE HoaDon SET SDTNhanVien = ?, "
+                    + "SDTKhachHang = ?, MaKhuyenMai = ?, TongTien = ?, NgaySua = ?, "
+                    + "TrangThai = 1, GhiChu = ? WHERE MaHoaDon = ?";
+            connection = DatabaseConnection.getConnection();
+            statement = connection.prepareCall(cauLenhCapNhat);
+            statement.setString(1, hoaDonModel.getSoDienThoaiNV());
+            statement.setString(2, hoaDonModel.getSoDienThoaiKH());
+            statement.setString(3, hoaDonModel.getMaKhuyenMai());
+            statement.setInt(4, hoaDonModel.getTongTien());
+            statement.setDate(5, (Date) hoaDonModel.getNgaySua());
+            statement.setString(6, hoaDonModel.getGhiChu());
+            statement.setString(7, hoaDonModel.getMaHoaDon());
+            statement.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+    
+    
     public boolean themHoaDonMoi (HoaDonModel hoaDonModel){
         HoaDonModel donModel = null;
          Connection connection = null;

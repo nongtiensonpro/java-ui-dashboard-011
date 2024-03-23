@@ -22,6 +22,8 @@ CREATE TABLE ThongTinNhanVien
     DiaChi NVARCHAR(255),
     Email VARCHAR(35)
 )
+
+SELECT * FROM ThongTinNhanVien
 GO
 CREATE TABLE ChucVuNhanVien
 (
@@ -241,6 +243,39 @@ VALUES
 
 select * from MauSac where MaMauSac like 'MS02'
 
+CREATE TABLE HoaDon(
+    MaHoaDon VARCHAR(20) PRIMARY KEY,
+    SDTNhanVien VARCHAR(20),
+    SDTKhachHang VARCHAR(20),
+    MaKhuyenMai VARCHAR(20),
+    TongTien INT,
+    NgayTao DATE,
+    NgaySua DATE,
+    TrangThai bit,
+    GhiChu NVARCHAR(100)
+)
+
+
+CREATE TABLE HoaDonChiTiet(
+    MaHoaDonChiTiet VARCHAR(20) PRIMARY KEY,
+    MaHoaDon VARCHAR(20),
+    MaSanPhamChiTiet VARCHAR(20),
+    TenSanPham NVARCHAR(50),
+    SoLuong INT,
+    DonGia INT,
+    TongTienCT INT
+)
+
+DROP TABLE HoaDonChiTiet
+DROP TABLE HoaDon
+SELECT * FROM HoaDon
+
+INSERT INTO HoaDon ( MaHoaDon, SDTNhanVien, SDTKhachHang,MaKhuyenMai, TongTien, NgayTao, NgaySua, TrangThai, GhiChu)
+VALUES ( 'HD001', '0944214116', '0944214116','KM001', 0, '2023-03-21', '2023-03-21', 1, 'Hóa đơn đầu tiên'),
+       ( 'HD002', '0944214116', '0944214116','KM001', 0, '2023-03-22', '2023-03-22', 1, 'Hóa đơn thứ hai'),
+       ( 'HD003', '0944214116', '0944214116','KM001', 0, '2023-03-23', '2023-03-23', 0, 'Hóa đơn bị hủy'),
+       ( 'HD004', '0944214116', '0944214116','KM001', 0, '2023-03-24', '2023-03-24', 1, 'Hóa đơn thứ tư'),
+       ( 'HD005', '0944214116', '0944214116','KM001', 0, '2023-03-25', '2023-03-25', 1, 'Hóa đơn thứ năm');
 
 
 
@@ -248,13 +283,12 @@ select * from MauSac where MaMauSac like 'MS02'
 
 
 
+SELECT * FROM HoaDon 
+
+SELECT * FROM HoaDonChiTiet
 
 
-
-
-
-
-
+SELECT * FROM HoaDon INNER JOIN HoaDonChiTiet ON HoaDon.MaHoaDon = HoaDonChiTiet.MaHoaDon WHERE HoaDonChiTiet.MaHoaDon = 'HD003'
 
 
 

@@ -12,7 +12,6 @@ import javaswingdev.form.QuanLyNhanVien;
 import javaswingdev.form.QuanLySanPhamJPanelNew;
 import javaswingdev.menu.EventMenuSelected;
 import model.TaiKhoanNhanVIenFull;
-import utilities.MsgBox;
 
 public class MainTaoFrom extends javax.swing.JFrame {
 
@@ -35,29 +34,31 @@ public class MainTaoFrom extends javax.swing.JFrame {
             public void menuSelected(int index, int indexSubMenu) {
                 if (index == 0 && indexSubMenu == 0) {
                     showForm(new Form_Dashboard());
+                    
                 } else {
                     System.err.println(index + " " + indexSubMenu);
-                    //Chuc nang chi danh cho quan ly
 
-                    if (index == 1 && indexSubMenu == 0) {
+                    if(index == 1 && indexSubMenu == 0){
+                        showForm(new FormKhachHang());
+                    }
+                    
+                    if(index == 2 && indexSubMenu == 0){
+                        showForm(new BanHang());
+                    }
+                    if (index == 3 && indexSubMenu == 0) {
                         showForm(new QuanLySanPhamJPanelNew());
                     }
-                    if (index == 2 && indexSubMenu == 0) {
+                    if (index == 4 && indexSubMenu == 0) {
                         
                         showForm(new QuanLyNhanVien());
                     }
-                    if(index == 3 && indexSubMenu == 0){
+                    if(index == 5 && indexSubMenu == 0){
                         showForm(new QuanLyMaXacThuc());
                     }
-                    if(index == 4 && indexSubMenu == 0){
-                        showForm(new FormKhachHang());
-                    }
-                    if(index == 5 && indexSubMenu == 0){
+                    if(index == 6 && indexSubMenu == 0){
                         showForm(new FormKhuyenMai());
                     }
-                    if(index == 6 && indexSubMenu == 0){
-                        showForm(new BanHang());
-                    }
+                    
                 }
             }
         });
@@ -99,14 +100,15 @@ public class MainTaoFrom extends javax.swing.JFrame {
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         body.setOpaque(false);
@@ -119,12 +121,14 @@ public class MainTaoFrom extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE))
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1261, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(body, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 639, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
